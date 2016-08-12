@@ -45,6 +45,7 @@
                 <a href="{{route('Member.index')}}" class="btn btn-success pull-right">
                   <span class="glyphicon glyphicon-plus"></span> Input Member Baru
                 </a>
+
             </div>
         </div>
     </body>
