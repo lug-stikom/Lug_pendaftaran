@@ -47,7 +47,7 @@ class memberController extends Controller
         //dd($request->all());
 
         $validator = Validator::make($request->all(), [
-          'Nim' => 'required|unique:member,Nim',
+          'Nim' => 'required|unique:members,Nim',
           'Nama' => 'required',
           'Tlp' => 'required',
 
