@@ -46,6 +46,56 @@
 
                   </div>
                 </div>
+                <div class="form-group {{ $errors->has('Pic') ? 'has-error' : ''}}">
+                  <label class="col-md-1 control-label" for="Pic">Picture</label>
+                    <div class="col-md-3">
+
+
+
+                      <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post">
+                          <input type="text" name="myname" id="myname">
+                      </form>
+
+                      <script type="text/javascript" src="{{ asset('js/webcam.js')}}"></script>
+                      <script language="JavaScript">
+                      		document.write( webcam.get_html(320, 240) );
+                      </script>
+                      <form>
+                      		<input type=button value="Configure..." onClick="webcam.configure()">
+                      		&nbsp;&nbsp;
+                      		<input type=button value="Take Snapshot" onClick="take_snapshot()">
+                      	</form>
+
+                      <script language="JavaScript">
+                      		document.write( webcam.get_html(320, 240) );
+                      </script>
+
+                      <!-- <script language="JavaScript">
+                          webcam.set_api_url( 'Member.test' );
+                      		webcam.set_quality( 90 ); // JPEG quality (1 - 100)
+                      		webcam.set_shutter_sound( true ); // play shutter click sound
+                      		webcam.set_hook( 'onComplete', 'my_completion_handler' );
+
+                      		function take_snapshot(){
+                      			// take snapshot and upload to server
+                      			document.getElementById('upload_results').innerHTML = '<h1>Uploading...</h1>';
+                      			webcam.snap();
+                      		}
+
+                      		function my_completion_handler(msg) {
+                      			// extract URL out of PHP output
+                      			if (msg.match(/(http\:\/\/\S+)/)) {
+                      				// show JPEG image in page
+                      				document.getElementById('upload_results').innerHTML ='<h1>Upload Successful!</h1>';
+                      				// reset camera for another shot
+                      				webcam.reset();
+                      			}
+                      			else {alert("PHP Error: " + msg);
+                      		}
+                      	</script> -->
+                    </div>
+                  </div>
+
               <div class="form-group">
                 <div class="col-md-offset-1 col-md-6">
                   <button type="submit" class="btn btn-primary">
