@@ -10,6 +10,7 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
     <link rel="stylesheet" type="text/css" href="{{asset('css/sweetalert2.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/gambar.min.css')}}">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -33,6 +34,11 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="https://www.facebook.com/lug805/"><img src="http://www.freeiconspng.com/uploads/image--facebook-icon--omori-wiki-12.png" alt="facebook" style="width:25px;height:25px;"></a></li>
+        <li><a href="lug.stikom.edu/">Official Web</a></li>
+          </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>

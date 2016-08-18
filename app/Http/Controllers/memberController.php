@@ -18,7 +18,7 @@ class memberController extends Controller
      */
     public function index()
     {
-        $members = DB::table('members')->paginate(5);
+        $members = DB::table('members')->paginate(10);
         $total_member = DB::table('members')->count();
 
           return view('Member.index', compact('members','total_member'));
