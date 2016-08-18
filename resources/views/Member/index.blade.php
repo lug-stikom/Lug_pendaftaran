@@ -11,7 +11,7 @@
 
 
           </h1>
-          <div style="background-color:white">
+          <div style="background-color:white;border-radius:10px">
           <table class ="table table-condensed table-hover" style="margin-top:40px;" >
               <thead>
                 <tr>
