@@ -71,6 +71,20 @@ class memberController extends Controller
 
     }
 
+    public function daftar(Request $request)
+    {
+      $id = DB::table('members')->insertGetId([
+        'Nim' => $request->Nim,
+        'Nama' => $request->Nama,
+        'Tlp' =>$request->Tlp,
+        'created_at' => new DateTime(),
+        'updated_at' => new DateTime(),
+
+      ]);
+
+      return response()->json(['status' => 'ok', 'inserted_id' => $id, 'data' => $request->all()]);
+    }
+
     /**
      * Display the specified resource.
      *

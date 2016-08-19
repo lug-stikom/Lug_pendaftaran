@@ -14,7 +14,7 @@ class CreateMemberTable extends Migration
     {
         Schema::create('members', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('Nim');
+            $table->string('Nim')->unique();
             $table->string('Nama');
             $table->string('Tlp');
             $table->timestamps();

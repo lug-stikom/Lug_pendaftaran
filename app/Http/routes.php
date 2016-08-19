@@ -14,4 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('daftar', [
+    'as' => 'daftar',
+    'uses' => 'memberController@daftar'
+]);
+
 Route::resource('Member','memberController');
