@@ -18,8 +18,6 @@
                   <th>No.</th>
                   <th>Nim </th>
                   <th>Nama </th>
-
-                  <th></th>
                 </tr>
               </thead>
               <tbody>
@@ -29,20 +27,9 @@
                     <td><?php echo ($i++ +($members->currentPage()*$members->perPage())-$members->perPage());?></td>
                     <td>{{$member->Nim}}</td>
                     <td>
-                      <a href="{{route('Member.show',$member->id)}}">
+                      <a href="{{route('member.show',$member->id)}}">
                         {{$member->Nama}}
                       </a>
-                    </td>
-
-                    <td>
-
-                    <form method="POST" action="{{route('Member.destroy',$member->id)}}" style="display: inline;">
-                    {{method_field('DELETE')}}
-                    {!! csrf_field() !!}
-                      <botton type="submit" class="btn btn-danger btn-sm delete-confirm">
-                        <span class="glyphicon glyphicon-trash"></span>Hapus
-                      </button>
-                    </form>
                     </td>
                   </tr>
                 @endforeach
@@ -57,7 +44,7 @@
             <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
           </p>
             <h1 style="margin-bottom: 40px;">Input Data Member</h1>
-            <form method="POST" action="{{route('Member.store')}}" class="form-horizontal">
+            <form method="POST" action="{{route('member.store')}}" class="form-horizontal">
 
               {!! csrf_field() !!}
               <div class="form-group {{ $errors->has('Nim') ? 'has-error' : ''}}">

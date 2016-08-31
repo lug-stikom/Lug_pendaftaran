@@ -8,7 +8,7 @@
   <p> Nama : {{$member2->Nama}}</p>
   <p> Tlp : {{$member2->Tlp}}</p>
 </div>
-<a href="{{route('Member.index')}}">
+<a href="{{route('member.index')}}">
 Back to Member
 </a>
 

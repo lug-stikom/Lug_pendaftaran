@@ -33,12 +33,41 @@
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
       <ul class="nav navbar-nav navbar-right">
         <li><a href="https://www.facebook.com/lug805/"><img src="http://www.freeiconspng.com/uploads/image--facebook-icon--omori-wiki-12.png" alt="facebook" style="width:25px;height:25px;"></a></li>
-        <li><a href="lug.stikom.edu/">Official Web</a></li>
+        <li><a href="//lug.stikom.edu/">Official Web</a></li>
           </ul>
+        </div>  -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        @if ( ! Auth::guest())
+          <ul class="nav navbar-nav">
+            <li><a href="/member">Membership</a></li>
+            <li><a href="/pengurus">Pengurus</a></li>
+            <li><a href="/pertemuan">Pertemuan</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="https://www.facebook.com/lug805/"><img src="http://www.freeiconspng.com/uploads/image--facebook-icon--omori-wiki-12.png" alt="facebook" style="width:25px;height:25px;"></a></li>
+            <li><a href="//lug.stikom.edu/">Official Web</a></li>
+          </ul>
+
+        @endif
+        <ul class="nav navbar-nav navbar-right">
+                    <!-- Authentication Links -->
+                    @if (Auth::guest())
+                    @else
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                {{ Auth::user()->name }} <span class="caret"></span>
+                            </a>
+
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                            </ul>
+                        </li>
+                    @endif
+                </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>

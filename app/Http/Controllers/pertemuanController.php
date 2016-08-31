@@ -9,7 +9,7 @@ use Validator;
 use DB;
 use DateTime;
 
-class memberController extends Controller
+class pertemuanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,10 +18,10 @@ class memberController extends Controller
      */
     public function index()
     {
-        $members = DB::table('members')->paginate(10);
-        $total_member = DB::table('members')->count();
+        //
+        $members = DB::table('members')->get();
 
-          return view('member.index', compact('members','total_member'));
+        return view('pertemuan.index', compact('members'));
 
     }
 
@@ -43,46 +43,31 @@ class memberController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        //dd($request->all());
+      $validator = Validator::make($request->all(), [
+        'materi' => 'required|max:100',
+        'deskripsi' => 'required|max:255',
+        'ruang' => 'required|max:20',
+        'diadakan' => 'required',
+      ]);
 
-        $validator = Validator::make($request->all(), [
-          'Nim' => 'required|unique:members,Nim',
-          'Nama' => 'required',
-          'Tlp' => 'required',
-
-        ]);
-
-        if ($validator->fails()) {
-          return
-          redirect()->route('member.index')->withErrors($validator)->withInput();
-        }
-        DB::table('members')->insert(
-        //rewuest berdasarkan name
-          ['Nim' => $request->Nim,
-          'Nama' => $request->Nama,
-          'Tlp' =>$request->Tlp,
-          'created_at' => new DateTime(),
-          'updated_at' => new DateTime(),
-
-        ]);
-        return redirect()->route('member.index')->with('pesan_sukses','simpan sukses !');
-        //echo 'Sukses simpan!';
-
-    }
-
-    public function daftar(Request $request)
-    {
-      $id = DB::table('members')->insertGetId([
-        'Nim' => $request->nim,
-        'Nama' => $request->name,
-        'Tlp' =>$request->phone,
+      if ($validator->fails()) {
+        return
+        redirect()->route('pertemuan.index')->withErrors($validator)->withInput();
+      }
+      DB::table('pertemuan')->insert([
+      //rewuest berdasarkan name
+        'materi' => $request->materi,
+        'deskripsi' => $request->deskripsi,
+        'diadakan' => $request->diadakan,
+        'ruang' =>$request->ruang,
+        'pengurus_id' =>$request->pengurus_id,
         'created_at' => new DateTime(),
         'updated_at' => new DateTime(),
 
       ]);
-
-      return response()->json(['status' => 'ok', 'inserted_id' => $id, 'data' => $request->all()]);
+      return redirect()->route('pertemuan.index')->with('pesan_sukses','simpan sukses !');
+      //echo 'Sukses simpan!';
+      //
     }
 
     /**
@@ -94,10 +79,6 @@ class memberController extends Controller
     public function show($id)
     {
         //
-        $member2 = DB::table('members')->find($id);
-
-        return view('member.show',compact('member2'));
-
     }
 
     /**
@@ -132,8 +113,5 @@ class memberController extends Controller
     public function destroy($id)
     {
         //
-        DB::table('members')->where('id', $id)->delete();
-        return redirect()->route('member.index')->with('pesan_sukses','Hapus sukses !');
-
     }
 }
