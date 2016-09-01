@@ -13,8 +13,9 @@ class CreatePresensiTable extends Migration
     public function up()
     {
         Schema::create('presensi', function (Blueprint $table) {
-            $table->primary('pertemuan_id');
-            $table->primary('member_id');
+            $table->integer('pertemuan_id');
+            $table->integer('member_id');
+            $table->primary(['pertemuan_id', 'member_id']);
             $table->integer('pengurus_id');
             $table->timestamps();
         });

@@ -19,8 +19,9 @@ Route::get('/', function () {
 //     'as' => 'daftar',
 //     'uses' => 'memberController@daftar'
 // ]);
-Route::group(['middleware'=>['auth']],function() {
 Route::resource('member','memberController');
+
+Route::group(['middleware'=>['auth']],function() {
 Route::resource('pengurus','pengurusController');
 Route::resource('pertemuan','pertemuanController');
 Route::resource('presensi','presensiController');
