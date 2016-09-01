@@ -74,7 +74,7 @@
                             <label for="pengurus_id" class="col-md-4 control-label">Pengurus ID</label>
 
                             <div class="col-md-6">
-                                <input id="pengurus_id" type="text" class="form-control" name="pengurus_id">
+                                <input id="pengurus_id" type="text" class="form-control" name="pengurus_id" value="{{Auth::user()->member_id}}">
 
                                 @if ($errors->has('pengurus_id'))
                                     <span class="help-block">
