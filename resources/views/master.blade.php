@@ -46,6 +46,7 @@
             <li><a href="/member">Membership</a></li>
             <li><a href="/pengurus">Pengurus</a></li>
             <li><a href="/pertemuan">Pertemuan</a></li>
+            <li><a href="/presensi">Presensi</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="https://www.facebook.com/lug805/"><img src="http://www.freeiconspng.com/uploads/image--facebook-icon--omori-wiki-12.png" alt="facebook" style="width:25px;height:25px;"></a></li>

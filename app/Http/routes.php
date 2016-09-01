@@ -23,6 +23,7 @@ Route::group(['middleware'=>['auth']],function() {
 Route::resource('member','memberController');
 Route::resource('pengurus','pengurusController');
 Route::resource('pertemuan','pertemuanController');
+Route::resource('presensi','presensiController');
 });
 
 // Route::auth();

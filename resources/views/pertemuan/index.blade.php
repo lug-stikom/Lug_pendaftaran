@@ -92,6 +92,7 @@
                                   <th>No.</th>
                                   <th>Nim </th>
                                   <th>Nama </th>
+                                  <th> </th>
                                 </tr>
                               </thead>
                               <tbody>
@@ -104,6 +105,11 @@
                                       <a href="{{route('member.show',$member->id)}}">
                                         {{$member->Nama}}
                                       </a>
+                                    </td>
+                                    <td>
+                                      <form>
+                                        <input type="checkbox" name="" value="">
+                                      </form>
                                     </td>
                                   </tr>
                                 @endforeach
